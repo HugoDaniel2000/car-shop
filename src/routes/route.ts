@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import Controller from '../controllers/controller';
+import Controller from '../controllers/genericController';
 import { IMiddlewareInterface } from '../interfaces/MiddlewareInterface';
 
 export default class CustomRouter<T> {
