@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import Controller, { RequestWithBody } from './controller';
-import CarService from '../Services/car.service';
+import Controller, { RequestWithBody } from './genericController';
+import CarService from '../Services/carsService';
 import { Car } from '../interfaces/CarInterface';
 
 class CarController extends Controller<Car> {

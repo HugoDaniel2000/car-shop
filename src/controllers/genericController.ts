@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import Service from '../Services/index';
+import Service from '../Services/genericService';
 
 export interface RequestWithBody<T> extends Request {
   body: T;
@@ -27,7 +27,7 @@ abstract class Controller<T> {
       return res.status(200).json(objs);
     } catch (err) {
       console.log(err);
-      
+
       next(err);
     }
   }

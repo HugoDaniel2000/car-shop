@@ -1,5 +1,6 @@
 import { ZodError } from 'zod';
-import Model from '../models/mongo.model';
+import CustomError from '../../helpers/customErrors';
+import Model from '../models/mongoModel';
 
 export interface ServiceError {
   error: ZodError;
@@ -16,7 +17,14 @@ abstract class Service<T> {
   }
 
   public async readOne(_id: string): Promise<T | null | ServiceError> {
-    return this.model.readOne(_id);
+    if (_id.length < 24) {
+      throw new CustomError(400, 'Id must have 24 hexadecimal characters');
+    }
+    const result = await this.model.readOne(_id);
+    if (!result) {
+      throw new CustomError(404, 'Object not found');
+    }
+    return result;
   }
 
   public async update(_id: string, object: T): Promise<T | null> {
