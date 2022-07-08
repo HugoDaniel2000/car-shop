@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import Service from '../Services/genericService';
+import Service from '../services/genericService';
 
 export interface RequestWithBody<T> extends Request {
   body: T;
@@ -8,7 +8,9 @@ export interface RequestWithBody<T> extends Request {
 abstract class Controller<T> {
   abstract route: string;
 
-  constructor(protected service: Service<T>) { }
+  constructor(protected service: Service<T>) { 
+    this.read = this.read.bind(this);
+  }
 
   abstract create(
     req: RequestWithBody<T>,
@@ -38,16 +40,16 @@ abstract class Controller<T> {
     next: NextFunction,
   ): Promise<typeof res | undefined>;
 
-  // abstract update(
-  //   _req: Request,
-  //   res: Response<T[]>,
-  //   next: NextFunction,
-  // ): Promise<typeof res | undefined>;
+  abstract update(
+    _req: Request,
+    res: Response<T[]>,
+    next: NextFunction,
+  ): Promise<typeof res | undefined>;
 
-  // abstract delete(
-  //   req: Request<{ id: string; }>,
-  //   res: Response<T>,
-  //   next: NextFunction,
-  // ): Promise<typeof res | undefined>;
+  abstract delete(
+    req: Request<{ id: string; }>,
+    res: Response<T>,
+    next: NextFunction,
+  ): Promise<typeof res | undefined>;
 }
 export default Controller;
