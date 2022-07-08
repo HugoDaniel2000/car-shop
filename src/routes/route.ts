@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response, Router } from 'express';
+import { Router } from 'express';
 import Controller from '../controllers/genericController';
 import { IMiddlewareInterface } from '../interfaces/MiddlewareInterface';
 
@@ -14,20 +14,14 @@ export default class CustomRouter<T> {
     middleware: IMiddlewareInterface,
     route: string = controller.route,
   ) {
-    this.router.get(route, (req, res, next) => controller.read(req, res, next));
-    this.router.get(
-      `${route}/:id`,
-
-      (req, res, next) => controller.readOne(req, res, next),
-    );
+    this.router.get(route, controller.read);
+    this.router.get(`${route}/:id`, controller.readOne);
     this.router.post(
       route,
       middleware.create,
-      (
-        req: Request,
-        res: Response,
-        next: NextFunction,
-      ) => controller.create(req, res, next),
+      controller.create,
     );
+    this.router.put(`${route}/:id`, middleware.create, controller.update);
+    this.router.delete(`${route}/:id`, controller.delete);
   }
 }
