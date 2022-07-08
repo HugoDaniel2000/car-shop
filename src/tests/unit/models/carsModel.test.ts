@@ -12,7 +12,6 @@ describe('Cars Model', () =>{
   const model = new CarModel();
 
   let sinonStub: SinonStub;
-  let idStub: SinonStub;
 
   describe('Create cars', () => {
     beforeEach(() => {
@@ -56,14 +55,12 @@ describe('Cars Model', () =>{
   describe('Update car by id', () => {
     beforeEach(() => {
       sinonStub = sinon.stub(mongoose.Model,'findOneAndUpdate').resolves(updatedCar);
-      idStub = sinon.stub(mongoose, "isValidObjectId").returns(true);
     })
     afterEach(() => {
       sinonStub.restore();
-      idStub.restore()
     })
     it('Should return updated car', async () => {
-      const result = await model.update('999', updateCar as Car );
+      const result = await model.update('999999999999999999999999', updateCar as Car );
       expect(result).to.be.eql(updatedCar);
     })
   })
@@ -72,14 +69,12 @@ describe('Cars Model', () =>{
     beforeEach(() => {
       sinonStub = sinon.stub(mongoose.Model,'findOneAndDelete').resolves(validCar2)
 
-      idStub = sinon.stub(mongoose, "isValidObjectId").returns(true);
     })
     afterEach(() => {
       sinonStub.restore();
-      idStub.restore()
     })
     it('Should return null', async () => {
-      const result = await model.delete('999');
+      const result = await model.delete('999999999999999999999999');
       expect(result).to.be.eql(validCar2);
     })
   })
