@@ -28,10 +28,12 @@ abstract class Service<T> {
   }
 
   public async update(_id: string, object: T): Promise<T | null> {
+    await this.readOne(_id);
     return this.model.update(_id, object);
   }
 
   public async delete(_id: string): Promise<T | null | ServiceError> {
+    await this.readOne(_id);
     return this.model.delete(_id);
   }
 }

@@ -37,7 +37,7 @@ const carSchema = new Schema<CarDocument>({
     type: Number,
     required: true,
   },
-});
+}, { versionKey: false });
 
 class CarModel extends MongoModel<Car> {
   constructor(model = createModel('Cars', carSchema)) {
