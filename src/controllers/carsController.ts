@@ -29,8 +29,8 @@ class CarController extends Controller<Car> {
     try {
       const result = (await this.service.create(body)) as Car;
       return res.status(201).json(result);
-    } catch (err) {
-      next();
+    } catch (error) {
+      next(error);
     }
   }
 

@@ -8,7 +8,7 @@ export interface RequestWithBody<T> extends Request {
 abstract class Controller<T> {
   abstract route: string;
 
-  constructor(protected service: Service<T>) { 
+  constructor(protected service: Service<T>) {
     this.read = this.read.bind(this);
   }
 
@@ -23,13 +23,10 @@ abstract class Controller<T> {
     res: Response<T[]>,
     next: NextFunction,
   ): Promise<typeof res | undefined> {
-    console.log('Entrou');
     try {
       const objs = await this.service.read();
       return res.status(200).json(objs);
     } catch (err) {
-      console.log(err);
-
       next(err);
     }
   }
