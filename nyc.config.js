@@ -5,6 +5,7 @@ module.exports = {
     "src/services",
     "src/controllers"
   ],
+  "all": true,
   "reporter": [
     "text",
     "text-summary",
