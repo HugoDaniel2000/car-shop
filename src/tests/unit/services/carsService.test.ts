@@ -6,7 +6,7 @@ import { Car } from '../../../interfaces/CarInterface';
 import CarModel from '../../../models/carsModel';
 import CarService from '../../../services/carsService';
 import {updatedCar, validCar, validCar2 } from '../../mocks/carsMocks';
-// import { Mongoose } from 'mongoose';
+
 
 use(chaiAsPromised);
 
