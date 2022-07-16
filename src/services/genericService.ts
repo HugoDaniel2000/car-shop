@@ -1,5 +1,5 @@
 import { ZodError } from 'zod';
-import CustomError from '../../helpers/customErrors';
+import CustomError from '../helpers/customErrors';
 import Model from '../models/mongoModel';
 
 export interface ServiceError {
