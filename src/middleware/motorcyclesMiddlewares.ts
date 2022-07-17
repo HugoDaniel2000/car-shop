@@ -94,6 +94,16 @@ export default class MotocylesMiddleware implements IMiddlewareInterface {
     next();
   };
 
+  public update = (req: Request, res: Response, next: NextFunction) => {
+    const { body } = req;
+    if (Object.keys(body).length === 0) {
+      const message = 'request "body" cannot be empty';
+      return res.status(400).json({ message });
+    }
+
+    next();
+  };
+
   public create = [
     this.checkModel,
     this.checkYear,

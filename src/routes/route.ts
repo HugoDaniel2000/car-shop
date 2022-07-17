@@ -21,7 +21,7 @@ export default class CustomRouter<T> {
       middleware.create,
       controller.create,
     );
-    this.router.put(`${route}/:id`, middleware.create, controller.update);
+    this.router.put(`${route}/:id`, middleware.update, controller.update);
     this.router.delete(`${route}/:id`, controller.delete);
   }
 }

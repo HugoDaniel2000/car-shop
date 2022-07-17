@@ -4,4 +4,5 @@ export interface IMiddlewareInterface {
   create: (
     (req: Request, res: Response, next: NextFunction) => (void | Response)
   )[];
+  update: (req: Request, res: Response, next: NextFunction) => (void | Response)
 }
