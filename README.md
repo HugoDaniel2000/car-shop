@@ -6,7 +6,7 @@ Construir uma API :
 
 - Usando MongoDB
 
--Usando POO
+- Utilizando conceitos de POO
 
 - Criando endpoints para consumir o banco de dados
 
