@@ -37,4 +37,4 @@ A API a ser construída trata-se de um sistema de gerenciamento de stock de uma 
   **⚠️ Atenção:**
 
 - Documentação da API: 
-  - [Disponivel neste link](https://https://documenter.getpostman.com/view/20065093/UzQvtQes)
+  - [Disponivel neste link](https://documenter.getpostman.com/view/20065093/UzQvtQes)
