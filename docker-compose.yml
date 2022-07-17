@@ -7,7 +7,7 @@ services:
     container_name: car_shop
     tty: true
     stdin_open: true
-    command: bash
+    command: bash -c "npm install && npm run dev"
     restart: always
     working_dir: /app
     volumes:
