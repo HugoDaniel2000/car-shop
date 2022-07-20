@@ -32,6 +32,8 @@ A API a ser construída trata-se de um sistema de gerenciamento de stock de uma 
 
 - Realizar o git clone: `git clone git@github.com:HugoDaniel2000/Blogs-api.git`;
 
+> Execute o comando `npm install`
+
 > Execute o comando `docker-compose up -d --build `
 
 > Execute o comando `npm run test:dev` ou  `npm run test:coverage` para executar os testes
