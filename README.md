@@ -17,8 +17,6 @@ Construir uma API :
 
 ## :wrench: O que foi desenvolvido
 
-Desenvolvido uma API utilizando a arquitetura MSC e Sequelize!
-
 A API a ser construída trata-se de um sistema de gerenciamento de stock de uma loja de automóveis, onde será possível criar, visualizar, deletar e atualizar carros e motos.
 
 **⚠️ Atenção:**
